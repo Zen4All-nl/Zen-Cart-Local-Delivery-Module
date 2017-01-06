@@ -1,5 +1,5 @@
 #Zen-Cart-Local-Delivery-Module
-<p><b>Warning: This code is highly experimental and not ready for production use. See the issues for things that still need to be done.</b></p>
+<p><b>Warning: This code is highly experimental and not ready for production use. See the <a href="https://github.com/Zen4All-nl/Zen-Cart-Local-Delivery-Module/issues">issues</a> for things that still need to be done.</b></p>
 <p>This module was developed thinking of a grocery store. It adds a timetable during checkout, in order to let the customer select which time he wants the goods delivered.</p>
 <p>The store administrator can set the cost and maximum number of deliveries for each time slot (default value and special value).<p>
 <p>The time slot will become automaticly unavailable to customers once it reaches the maximum number of orders as set by the store administrator.</p>
