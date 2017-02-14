@@ -10,7 +10,7 @@
  */
 
 $slots = zen4All_getTimeSlots();
-$taxRate = zen_get_tax_rate(MODULE_SHIPPING_LOCAL_DELIVERY_TAX_CLASS);
+$taxRate = zen_get_tax_rate(MODULE_SHIPPING_LOCALDELIVERY_TAX_CLASS);
 ?>
 <body id="popupLocalDelivery">
   <?php
@@ -70,7 +70,7 @@ $taxRate = zen_get_tax_rate(MODULE_SHIPPING_LOCAL_DELIVERY_TAX_CLASS);
                   ?>
                 </tr>
                 <?php
-                for ($i = 0; $i < MODULE_SHIPPING_LOCAL_DELIVERY_DAYS_AHEAD; $i++) {
+                for ($i = 0; $i < MODULE_SHIPPING_LOCALDELIVERY_DAYS_AHEAD; $i++) {
                   $timestamps = strtotime("+$i day");
                   $weekDayId = date('N', $timestamps);
                   ?>
