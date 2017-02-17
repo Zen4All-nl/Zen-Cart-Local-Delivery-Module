@@ -26,9 +26,10 @@ function zen4All_getTimeSlots() {
 ///For Delivery Details
 function zen4All_getSlot($slotId) {
   global $db;
-  $tot_query = tep_db_query("select slot from sw_time_slots where slotid = $slotid");
-  $tot_res = tep_db_fetch_array($tot_query);
-  return $tot_res['slot'];
+  $tot_res = $db->Execute("SELECT slot
+                           FROM " . TABLE_TIME_SLOTS . "
+                           WHERE slot_id = $slotId");
+  return $tot_res->fields['slot'];
 }
 
 //Returns total count by date & time slot 

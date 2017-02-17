@@ -23,8 +23,10 @@ $taxRate = zen_get_tax_rate(MODULE_SHIPPING_LOCALDELIVERY_TAX_CLASS);
       'cost' => $_POST['grid'][$gridLocation]['cost']
     );
     ?>
-  <script type="text/javascript">
-      window.close();
+    <script type="text/javascript">
+        window.opener.document.getElementById("localdelivery_cost").innerHTML = '<?php echo $currencies->format(zen_add_tax($_POST['grid'][$gridLocation]['cost'], $taxRate)); ?>';
+        window.opener.document.getElementById("localdelivery_label").innerHTML = '<?php echo MODULE_SHIPPING_LOCALDELIVERY_TEXT_DATE; ?><?php echo ' . <strong>' . $_POST['grid'][$gridLocation]['date'] . '</strong>&nbsp;' . MODULE_SHIPPING_LOCALDELIVERY_TEXT_SLOT . '<strong>' .  zen4All_getSlot($_POST['grid'][$gridLocation]['timeSlotId']) . '</strong>'; ?>&nbsp;<a href="javascript:popupWindow(\'index.php?main_page=popup_local_delivery\')">reselect</a>';
+        window.close();
     </script>
     <?php
   }
@@ -43,7 +45,7 @@ $taxRate = zen_get_tax_rate(MODULE_SHIPPING_LOCALDELIVERY_TAX_CLASS);
         }
       }
       if (selOption == -1) {
-        alert("<?php echo ALERT_SELECT_TIME_SLOT ; ?>");
+        alert("<?php echo ALERT_SELECT_TIME_SLOT; ?>");
         return false;
       }
       return true;
@@ -150,7 +152,10 @@ $taxRate = zen_get_tax_rate(MODULE_SHIPPING_LOCALDELIVERY_TAX_CLASS);
               <div class="alignCenter">
                 <?php
                 echo zen_draw_hidden_field('gridLocation', $selectedTimeSlot);
-                echo zen_image_submit('button_submit.gif', 'Select & Close'); ?>&nbsp; <?php echo zen_image_button('button_cancel.gif', BUTTON_CANCEL_ALT, 'onClick="window.close();"') ?>
+                echo zen_image_submit('button_submit.gif', 'Select & Close');
+                ?>
+                &nbsp;
+                <?php echo zen_image_button('button_cancel.gif', BUTTON_CANCEL_ALT, 'onClick="window.close();"') ?>
               </div>
               </form>
             </td>
